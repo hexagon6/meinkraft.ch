@@ -1,3 +1,8 @@
 #!/bin/bash
 
-docker run -p 25565:25565 minecraft:stable
+opt=$1
+
+type="stable"
+[ "$opt" = "--snapshot" ] && type="snapshot"
+
+docker run -p 25565:25565 minecraft:${type}

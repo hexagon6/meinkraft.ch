@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd minecraft-stable
-docker build -t minecraft:stable .
+opt=$1
+
+type="stable"
+[ "$opt" = "--snapshot" ] && type="snapshot"
+
+cd minecraft-${type}
+docker build -t minecraft:${type} .
 
 exit 0
